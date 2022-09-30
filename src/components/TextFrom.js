@@ -38,8 +38,12 @@ export default function TextFrom(props) {
         </div>
         <div className="container">
             <h1 style={{color : props.mode === "dark"?"white":"black"}}>Your text summary</h1>
-            <p style={{color : props.mode === "dark"?"white":"black"}}>{text.length == 0? text.split(" ").length -1:text.split(" ").length} words and {text.length} characters</p>
-            <p style={{color : props.mode === "dark"?"white":"black"}}>{0.008 * (text.split(" ").length)} Minutes read</p>
+            <p style={{color : props.mode === "dark"?"white":"black"}}>{text.split(" ").filter((element)=>{
+                return element.length!==0
+            }).length} words and {text.length} characters</p>
+            <p style={{color : props.mode === "dark"?"white":"black"}}>{0.008 * (text.split(" ").filter((element)=>{
+                return element.length!==0
+            }).length)} Minutes read</p>
             <h2 style={{color : props.mode === "dark"?"white":"black"}}>Preview of your text</h2>
             <p style={{color : props.mode === "dark"?"white":"black"}}>{text}</p>
         </div>
